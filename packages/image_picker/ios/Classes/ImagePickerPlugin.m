@@ -205,9 +205,9 @@ static const int SOURCE_GALLERY = 1;
       image = [self scaledImage:image maxWidth:maxWidth maxHeight:maxHeight];
     }
 
-    BOOL saveAsPNG = [self hasAlpha:image];
+      BOOL saveAsPNG = false; //[self hasAlpha:image]; // hardcode to JPEG format so we don't get large PNG files to upload - Jamie
     NSData *data =
-        saveAsPNG ? UIImagePNGRepresentation(image) : UIImageJPEGRepresentation(image, 1.0);
+        saveAsPNG ? UIImagePNGRepresentation(image) : UIImageJPEGRepresentation(image, 0.7); // Set to lower quality JPEG than 1.0 - Jamie
     NSString *fileExtension = saveAsPNG ? @"image_picker_%@.png" : @"image_picker_%@.jpg";
     NSString *guid = [[NSProcessInfo processInfo] globallyUniqueString];
     NSString *tmpFile = [NSString stringWithFormat:fileExtension, guid];
