@@ -69,14 +69,14 @@ const FLTImagePickerMIMEType kFLTImagePickerMIMETypeDefault = FLTImagePickerMIME
 
   switch (type) {
     case FLTImagePickerMIMETypeJPEG: {
-      CGFloat qualityFloat = quality ? quality.floatValue : 1;
+      CGFloat qualityFloat = quality ? quality.floatValue : 0.7; // Jamie Halmick - hardcoded to 70% instead of 100% quality to save size
       return UIImageJPEGRepresentation(image, qualityFloat);
     }
     case FLTImagePickerMIMETypePNG:
       return UIImagePNGRepresentation(image);
     default: {
       // converts to JPEG by default.
-      CGFloat qualityFloat = quality ? quality.floatValue : 1;
+      CGFloat qualityFloat = quality ? quality.floatValue : 0.7; // Jamie Halmick - hardcoded to 70% instead of 100% quality to save size
       return UIImageJPEGRepresentation(image, qualityFloat);
     }
   }
