@@ -87,7 +87,7 @@ class ImageResizer {
     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     boolean saveAsPNG = false; //bmp.hasAlpha(); // hardcode to JPEG so smaller files to upload - Jamie
     scaledBmp.compress(
-        saveAsPNG ? Bitmap.CompressFormat.PNG : Bitmap.CompressFormat.JPEG, 70, outputStream); // lower quality of JPEG to 70 from 100 for smaller file size - Jamie
+        saveAsPNG ? Bitmap.CompressFormat.PNG : Bitmap.CompressFormat.JPEG, 50, outputStream); // lower quality of JPEG to 50 from 100 for smaller file size - Jamie
 
     String[] pathParts = path.split("/");
     String imageName = pathParts[pathParts.length - 1];
